@@ -16,6 +16,6 @@ jobs:
           uses: actions/checkout@v4
         - name: List and read file
           run: |
-             echo "Updated the first github action"
+             echo "Updated the first github action, lets see if it works"
              ls -ltra
              cat dragon.txt
