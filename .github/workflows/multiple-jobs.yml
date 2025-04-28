@@ -1,0 +1,44 @@
+name: Multiple jobs in a workflow
+
+on: 
+   push
+
+jobs:
+    build_job_1:
+     runs-on: ubuntu-latest
+     steps:
+     - name: Installing and Executing cowsay
+       run: |
+              sudo apt-get update
+              sudo apt-get install cowsay -f
+              cowsay -f dragon "Run, the dragon is here" >> newdragon.txt
+     - name: Uploading the artifact
+       uses: actions/upload-artifact@v4
+       with:
+        name: dragon-text-file
+        path: newdragon.txt
+
+    test_job_2:
+        needs: build_job_1
+        runs-on: ubuntu-latest
+        steps:
+        - name: Downloading the artifact
+          uses: actions/download-artifact@v4
+          with:
+            name: dragon-text-file
+         
+        - name: testing the dragon file
+          run: grep -i "dragon" newdragon.txt
+    
+    deploy_job_3:
+        needs: test_job_2
+        runs-on: ubuntu-latest
+        steps:
+        - name: Downloading the artifact again
+          uses: actions/download-artifact@v4
+          with:
+           name: dragon-text-file
+        - name: Read the dragon file
+          run: cat newdragon.txt
+        - name: Deploy
+          run: echo "Deployinggg"
