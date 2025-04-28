@@ -1,5 +1,6 @@
 name: Trying environment variables
 on:
+  push
   workflow_dispatch:
 
 env:
@@ -20,6 +21,7 @@ jobs:
 
 
  student_2:
+    timeout-minutes: 1     
     concurrency: 
       group: project-deployment
       cancel-in-progress: true
