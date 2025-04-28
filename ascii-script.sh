@@ -1,15 +1,6 @@
-name: Generate ASCII Artwork
-
-on: 
-   push
-jobs:
-    ascii-job:
-        runs-on: ubuntu-latest
-        steps:
-      
-        - name: Listing the files in repo
-          run: ls -ltra
-        - name: Running the Shell Script
-          run: |
-              chmod +x ascii-script.sh
-              ./ascii-script.sh
+sudo apt-get update
+sudo apt-get install cowsay -y
+cowsay -f dragon "dragon is heree" >> dragon.txt
+grep -i "dragon" dragon.txt
+cat dragon.txt
+ls -ltra
