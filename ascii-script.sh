@@ -9,8 +9,7 @@ jobs:
       
         - name: Listing the files in repo
           run: ls -ltra
-        - name: Running the Shell Script with error fixed
+        - name: Running the Shell Script
           run: |
               chmod +x ascii-script.sh
               ./ascii-script.sh
-            
