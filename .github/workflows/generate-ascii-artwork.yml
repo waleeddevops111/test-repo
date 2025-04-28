@@ -8,15 +8,10 @@ jobs:
         steps:
         - name: Checkout Action
           uses: actions/checkout@v4
-        - name: Generate Ascii Art
+        - name: Listing the files in repo
+          run: ls
+        - name: Running the Script
           run: |
-            sudo apt-get install cowsay -y
-            cowsay -f dragon "Run, the dragon is here" >> dragon.txt
-            grep -i "dragon" dragon.txt
-
-
-        - name: List and read file
-          run: |
-             echo "Updated the first github action, lets see if it works"
-             ls -ltra
-             cat dragon.txt
+              chmod +x
+              ./ascii-script.sh
+            
