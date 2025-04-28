@@ -1,0 +1,34 @@
+name: Trying environment variables
+on:
+    push
+env:
+    CLASS: 10
+jobs:
+ student_1:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: roll no 1 info
+      env:
+        NAME: Waleed
+        ROLL_NO: 1
+      run: |
+         echo "Roll no 1 info is: "
+         echo "name: $NAME"
+         echo "Roll_no: $ROLL_NO"
+         echo "class: $CLASS
+
+
+ student_2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Student no 2 info
+      env:
+        NAME: Hani
+        ROLL_NO: 2
+      run: |
+          echo "Student 2 info is:"
+          echo "Name: $NAME"
+          echo "Roll no: $ROLL_NO"
+          echo "Class: $CLASS"
+
+   
