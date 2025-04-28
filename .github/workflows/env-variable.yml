@@ -1,7 +1,6 @@
 name: Trying environment variables
 on:
-    schedule:
-      - cron: '* * * * *'
+  workflow_dispatch:
 
 env:
     CLASS: 10
@@ -21,6 +20,9 @@ jobs:
 
 
  student_2:
+    concurrency: 
+      group: project-deployment
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
     - name: Student no 2 info
@@ -32,5 +34,6 @@ jobs:
           echo "Name: $NAME"
           echo "Roll no: $ROLL_NO"
           echo "Class: $CLASS"
+          sleep 600s
 
    
