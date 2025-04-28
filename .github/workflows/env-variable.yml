@@ -15,7 +15,7 @@ jobs:
          echo "Roll no 1 info is: "
          echo "name: $NAME"
          echo "Roll_no: $ROLL_NO"
-         echo "class: $CLASS
+         echo "class: $CLASS"
 
 
  student_2:
