@@ -1,7 +1,7 @@
 name: Trying environment variables
 on:
     schedule:
-      - cron: '42 14 * * *'
+      - cron: '* * * * *'
 
 env:
     CLASS: 10
