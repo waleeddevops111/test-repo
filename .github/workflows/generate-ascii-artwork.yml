@@ -9,7 +9,7 @@ jobs:
         - name: Generate Ascii Art
           run: |
             sudo apt-get install cowsay -y
-            run cowsay -f dragon "Run, the dragon is here" >> dragon.txt
+            cowsay -f dragon "Run, the dragon is here" >> dragon.txt
             grep -i "dragon" dragon.txt
 
         - name: Checkout Action
